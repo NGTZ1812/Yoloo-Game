@@ -1,6 +1,5 @@
 public class Person {
 
-    EigenerScanner scanny = new EigenerScanner();
     protected Deck eigenesDeck = new Deck();
 
     private String name;
