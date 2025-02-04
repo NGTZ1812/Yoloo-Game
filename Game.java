@@ -73,7 +73,11 @@ public class Game {
             System.out.println(spielergruppe.get(i).get_Name()+" spielt folgende Karte: "+kartenwert);
             gespielteKarten.add(kartenwert);
         }
-        gespielteKarten_sorted = gespielteKarten;
+        //gespielteKarten_sorted = gespielteKarten;
+        for (int i = 0; i < gespielteKarten.size(); i++){
+            int var = gespielteKarten.get(i);
+            gespielteKarten_sorted.add(var);
+        }
         gespielteKarten_sorted.sort(null);
         punkteVergeben(durchlaufNr);
         System.out.println();
@@ -93,11 +97,13 @@ public class Game {
         if (siegwert != 0){
             for (int i= 0; i < gespielteKarten.size(); i++){
                 if (siegwert == gespielteKarten.get(i)){
-                    System.out.println(spielergruppe.get(i)+" hat den Durchlauf gewonnen und bekommt "+punkte+" Punkte!");
+                    System.out.println(spielergruppe.get(i).get_Name()+" hat den Durchlauf gewonnen und bekommt "+punkte+" Punkte!");
                     spielergruppe.get(i).punkteHinzufuegen(punkte);
                 }
             }
         }
+        gespielteKarten.clear();
+        gespielteKarten_sorted.clear();
     }
 
     public void zwischenergebnisAusgeben(){
@@ -119,5 +125,6 @@ public class Game {
                 sieger = spielergruppe.get(i);
             }
         }
+        System.out.println(sieger.get_Name()+" hat das Spiel mit "+sieger.get_Punkte()+" Punkten gewonnen!!!");
     }
 }
